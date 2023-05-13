@@ -237,19 +237,17 @@ screen quick_menu():
 
     if quick_menu:
 
-        hbox:
+        vbox:
             style_prefix "quick"
 
-            xalign 0.5
-            yalign 1.0
+            xalign 1.0
+            yalign 0.5
+            spacing 20
 
-            textbutton _("回退") action Rollback()
             textbutton _("历史") action ShowMenu('history')
             textbutton _("快进") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("自动") action Preference("auto-forward", "toggle")
             textbutton _("保存") action ShowMenu('save')
-            textbutton _("快存") action QuickSave()
-            textbutton _("快读") action QuickLoad()
             textbutton _("设置") action ShowMenu('preferences')
 
 
