@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/input_handler.rpy", line 1: expected statement.
-    class CustomInputHandler(renpy.python.InputHandler):
-                            ^
+File "game/screens.rpy", line 242: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    add Solid("#000c")
+                      ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Fri May 12 01:34:21 2023
+Sat May 13 03:22:09 2023
