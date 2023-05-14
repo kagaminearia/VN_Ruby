@@ -237,7 +237,7 @@ transform open:
         yoffset 0
     on hover:
         linear 0.15
-        xoffset -50  # Change this value to control the movement distance
+        xoffset -50  # 用于改变按键移动的距离
         yoffset 0
 
 
@@ -253,7 +253,7 @@ screen quick_menu():
 
             xalign 1.0
             yalign 0.5
-            spacing 20
+            spacing 20 # 按键之间的间隔
 
             # 按键：主页面，历史，快进，自动，保存，设置
 
