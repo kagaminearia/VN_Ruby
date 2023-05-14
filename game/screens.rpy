@@ -230,6 +230,17 @@ style choice_button_text is default:
 ##
 ## 快捷菜单显示于游戏内，以便于访问游戏外的菜单。
 
+
+transform open:
+    on idle:
+        xoffset 0
+        yoffset 0
+    on hover:
+        linear 0.15
+        xoffset -50  # 用于改变按键移动的距离
+        yoffset 0
+
+
 screen quick_menu():
 
     ## 确保该菜单出现在其他界面之上，
@@ -237,20 +248,64 @@ screen quick_menu():
 
     if quick_menu:
 
-        hbox:
+        vbox:
             style_prefix "quick"
 
-            xalign 0.5
-            yalign 1.0
+            xalign 1.0
+            yalign 0.5
+            spacing 20 # 按键之间的间隔
 
-            textbutton _("回退") action Rollback()
-            textbutton _("历史") action ShowMenu('history')
-            textbutton _("快进") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("自动") action Preference("auto-forward", "toggle")
-            textbutton _("保存") action ShowMenu('save')
-            textbutton _("快存") action QuickSave()
-            textbutton _("快读") action QuickLoad()
-            textbutton _("设置") action ShowMenu('preferences')
+            # 按键：主页面，历史，快进，自动，保存，设置
+
+            imagebutton:
+                idle "#cfcfcf"
+                hover "#4c4c57"
+                xysize(100,50)
+                at open
+                xoffset 50
+                action MainMenu()
+
+            # textbutton _("历史") action ShowMenu('history')
+            imagebutton:
+                idle "#cfcfcf"
+                hover "#4c4c57"
+                xysize(100,50)
+                at open
+                xoffset 50
+                action ShowMenu('history')
+                
+            imagebutton:
+                idle "#cfcfcf"
+                hover "#4c4c57"
+                xysize(100,50)
+                at open
+                xoffset 50
+                action Skip() alternate Skip(fast=True, confirm=True)
+            
+            imagebutton:
+                idle "#cfcfcf"
+                hover "#4c4c57"
+                xysize(100,50)
+                at open
+                xoffset 50
+                action Preference("auto-forward", "toggle")
+
+            imagebutton:
+                idle "#cfcfcf"
+                hover "#4c4c57"
+                xysize(100,50)
+                at open
+                xoffset 50
+                action ShowMenu('save')
+
+            imagebutton:
+                idle "#cfcfcf"
+                hover "#4c4c57"
+                xysize(100,50)
+                at open
+                xoffset 50
+                action ShowMenu('preferences')
+
 
 
 ## 此代码确保只要用户没有主动隐藏界面，就会在游戏中显示 quick_menu 界面。
