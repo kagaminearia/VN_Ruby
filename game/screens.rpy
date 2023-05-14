@@ -231,79 +231,76 @@ style choice_button_text is default:
 ## 快捷菜单显示于游戏内，以便于访问游戏外的菜单。
 
 
+
 transform open:
     on idle:
-        xoffset 0
+        xoffset 150 # 用于改变按键移动的距离
         yoffset 0
     on hover:
         linear 0.15
-        xoffset -50  # 用于改变按键移动的距离
+        xoffset 0 
         yoffset 0
 
 
 screen quick_menu():
-
     ## 确保该菜单出现在其他界面之上，
     zorder 100
-
+    
     if quick_menu:
+        button:
+            add im.Scale("gui/chapter.png", 100, 70) xalign 1.0
+            text "主菜单" xalign 1.0
+            action MainMenu()
 
         vbox:
-            style_prefix "quick"
+            # style_prefix "quick"
 
             xalign 1.0
             yalign 0.5
-            spacing 20 # 按键之间的间隔
+            spacing 30 # 按键之间的间隔
 
-            # 按键：主页面，历史，快进，自动，保存，设置
+            # 按键：历史，快进，自动，保存，设置
 
-            imagebutton:
-                idle "#cfcfcf"
-                hover "#4c4c57"
-                xysize(100,50)
+            # imagebutton:
+            #     idle "#cfcfcf"
+            #     hover "#4c4c57"
+            #     xysize(100,50)
+            #     at open
+            #     xoffset 50
+            #     action ShowMenu('history')
+            textbutton "历史":
                 at open
-                xoffset 50
-                action MainMenu()
-
-            # textbutton _("历史") action ShowMenu('history')
-            imagebutton:
-                idle "#cfcfcf"
-                hover "#4c4c57"
-                xysize(100,50)
-                at open
-                xoffset 50
+                background "#cfcfcf"
+                hover_background "#4c4c57"
+                right_padding 200 
                 action ShowMenu('history')
-                
-            imagebutton:
-                idle "#cfcfcf"
-                hover "#4c4c57"
-                xysize(100,50)
+
+            textbutton "快进":
                 at open
-                xoffset 50
+                background "#cfcfcf"
+                hover_background "#4c4c57"
+                right_padding 200 
                 action Skip() alternate Skip(fast=True, confirm=True)
             
-            imagebutton:
-                idle "#cfcfcf"
-                hover "#4c4c57"
-                xysize(100,50)
+            textbutton "自动":
                 at open
-                xoffset 50
+                background "#cfcfcf"
+                hover_background "#4c4c57"
+                right_padding 200 
                 action Preference("auto-forward", "toggle")
 
-            imagebutton:
-                idle "#cfcfcf"
-                hover "#4c4c57"
-                xysize(100,50)
+            textbutton "保存":
                 at open
-                xoffset 50
+                background "#cfcfcf"
+                hover_background "#4c4c57"
+                right_padding 200 
                 action ShowMenu('save')
 
-            imagebutton:
-                idle "#cfcfcf"
-                hover "#4c4c57"
-                xysize(100,50)
+            textbutton "设置":
                 at open
-                xoffset 50
+                background "#cfcfcf"
+                hover_background "#4c4c57"
+                right_padding 200 
                 action ShowMenu('preferences')
 
 

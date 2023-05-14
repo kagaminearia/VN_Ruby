@@ -159,7 +159,7 @@ define gui.button_text_insensitive_color = gui.insensitive_color
 
 ## 按钮文本的水平对齐方式。（0.0 为左侧对齐，0.5 为居中对齐，而 1.0 为右侧对
 ## 齐）。
-define gui.button_text_xalign = 0.0
+define gui.button_text_xalign = None
 
 
 ## 这些变量覆盖了不同类型按钮的设置。关于可用的按钮种类以及每种按钮的用途，请参
@@ -171,7 +171,7 @@ define gui.radio_button_borders = Borders(18, 4, 4, 4)
 
 define gui.check_button_borders = Borders(18, 4, 4, 4)
 
-define gui.confirm_button_text_xalign = 0.5
+define gui.confirm_button_text_xalign = None
 
 define gui.page_button_borders = Borders(10, 4, 10, 4)
 
@@ -196,7 +196,7 @@ define gui.choice_button_tile = False
 define gui.choice_button_borders = Borders(100, 5, 100, 5)
 define gui.choice_button_text_font = gui.text_font
 define gui.choice_button_text_size = gui.text_size
-define gui.choice_button_text_xalign = 0.5
+define gui.choice_button_text_xalign = None
 define gui.choice_button_text_idle_color = "#cccccc"
 define gui.choice_button_text_hover_color = "#ffffff"
 define gui.choice_button_text_insensitive_color = "#444444"
@@ -372,7 +372,7 @@ define gui.nvl_thought_xalign = 0.0
 
 ## NVL menu_buttons 的位置。
 define gui.nvl_button_xpos = 450
-define gui.nvl_button_xalign = 0.0
+define gui.nvl_button_xalign = None
 
 ## 本地化 #########################################################################
 
