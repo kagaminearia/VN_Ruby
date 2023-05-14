@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 242: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
-    add Solid("#000c")
-                      ^
+File "game/screens.rpy", line 280: 'right' is not a keyword argument or valid child for the textbutton statement.
+    right padding 50 
+         ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Sat May 13 03:22:09 2023
+Sun May 14 06:43:57 2023
