@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 280: 'right' is not a keyword argument or valid child for the textbutton statement.
-    right padding 50 
-         ^
+File "game/screens.rpy", line 264: 'idle' is not a keyword argument or valid child for the textbutton statement.
+    idle "#000000"
+        ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Sun May 14 06:43:57 2023
+Mon May 15 09:54:25 2023

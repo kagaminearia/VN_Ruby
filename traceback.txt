@@ -87,4 +87,4 @@ Exception: Could not find font 'SourceHanSansLite.ttf'.
 Windows-10-10.0.22621 AMD64
 Ren'Py 8.0.3.22090809
 红宝石狂想曲 1.0
-Sun May 14 06:43:58 2023
+Mon May 15 09:54:26 2023
