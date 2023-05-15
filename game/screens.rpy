@@ -234,7 +234,7 @@ style choice_button_text is default:
 
 transform open:
     on idle:
-        xoffset 150 # 用于改变按键移动的距离
+        xoffset 180 # 用于改变按键移动的距离
         yoffset 0
     on hover:
         linear 0.15
@@ -242,74 +242,95 @@ transform open:
         yoffset 0
 
 
+default quick_menu = True
 screen quick_menu():
     ## 确保该菜单出现在其他界面之上，
     zorder 100
-    
     if quick_menu:
-        button:
-            add im.Scale("gui/chapter.png", 100, 70) xalign 1.0
-            text "主菜单" xalign 1.0
-            action MainMenu()
+        vbox:
+            textbutton "隐藏":
+                text_color "#ffffff"
+                text_hover_color "#afafaf"
+                pos(1220,0)
+                action [SetVariable('quick_menu', False),Show("showQuick")]
 
         vbox:
             # style_prefix "quick"
-
             xalign 1.0
             yalign 0.5
             spacing 30 # 按键之间的间隔
 
             # 按键：历史，快进，自动，保存，设置
-
-            # imagebutton:
-            #     idle "#cfcfcf"
-            #     hover "#4c4c57"
-            #     xysize(100,50)
-            #     at open
-            #     xoffset 50
-            #     action ShowMenu('history')
             textbutton "历史":
                 at open
-                background "#cfcfcf"
-                hover_background "#4c4c57"
+                text_color "#ffffff"
+                text_hover_color "#afafaf"
+                background "gui/button/quick_.png"
+                hover_background "gui/button/quick_.png"
+                left_padding 50
+                top_padding 15
                 right_padding 200 
                 action ShowMenu('history')
 
             textbutton "快进":
                 at open
-                background "#cfcfcf"
-                hover_background "#4c4c57"
+                text_color "#ffffff"
+                text_hover_color "#afafaf"
+                background "gui/button/quick_.png"
+                hover_background "gui/button/quick_.png"
+                left_padding 50
+                top_padding 15
                 right_padding 200 
                 action Skip() alternate Skip(fast=True, confirm=True)
             
             textbutton "自动":
                 at open
-                background "#cfcfcf"
-                hover_background "#4c4c57"
+                text_color "#ffffff"
+                text_hover_color "#afafaf"
+                background "gui/button/quick_.png"
+                hover_background "gui/button/quick_.png"
+                left_padding 50
+                top_padding 15
                 right_padding 200 
                 action Preference("auto-forward", "toggle")
 
             textbutton "保存":
                 at open
-                background "#cfcfcf"
-                hover_background "#4c4c57"
+                text_color "#ffffff"
+                text_hover_color "#afafaf"
+                background "gui/button/quick_.png"
+                hover_background "gui/button/quick_.png"
+                left_padding 50
+                top_padding 15
                 right_padding 200 
                 action ShowMenu('save')
 
             textbutton "设置":
                 at open
-                background "#cfcfcf"
-                hover_background "#4c4c57"
+                text_color "#ffffff"
+                text_hover_color "#afafaf"
+                background "gui/button/quick_.png"
+                hover_background "gui/button/quick_.png"
+                left_padding 50
+                top_padding 15
                 right_padding 200 
                 action ShowMenu('preferences')
 
+
+screen showQuick():
+    zorder 100
+    vbox:
+        textbutton "显示":
+            text_color "#ffffff"
+            text_hover_color "#afafaf"
+            pos(1220,0)
+            action [Hide("showQuick"), SetVariable('quick_menu', True)]
 
 
 ## 此代码确保只要用户没有主动隐藏界面，就会在游戏中显示 quick_menu 界面。
 init python:
     config.overlay_screens.append("quick_menu")
 
-default quick_menu = True
 
 style quick_button is default
 style quick_button_text is button_text
