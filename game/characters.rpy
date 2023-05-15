@@ -1,9 +1,15 @@
 # 此文件用于定义角色以及对应图片
 
+image ctc_icon:
+    "gui/page_reminder.png"
+    linear 0.75 alpha 1.0
+    linear 0.75 alpha 0.0
+    repeat 
+
 # 角色名
-define ruby = Character("露比", image="ruby")
+define ruby = Character("露比", image="ruby",ctc="ctc_icon", ctc_pause = "ctc", ctc_position = "nestled")
 define l = Character("里昂")
-define m = Character("大臣")
+define m = Character("大臣",ctc="ctc_icon",ctc_pause = "ctc_icon", ctc_timedpause = "ctc_icon",ctc_position = "fixed")
 define ra = Character("起义军之首")
 define rs = Character("起义军兵士")
 define fa = Character("追随者A")

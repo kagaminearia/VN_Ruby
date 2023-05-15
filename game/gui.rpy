@@ -267,9 +267,11 @@ define gui.main_menu_text_xalign = 1.0
 
 ## 通用框架。
 define gui.frame_borders = Borders(4, 4, 4, 4)
+# define gui.frame_borders = None
 
 ## 用作确认界面部分的框架。
 define gui.confirm_frame_borders = Borders(40, 40, 40, 40)
+# define gui.confirm_frame_borders = None
 
 ## 用作快进界面部分的框架。
 define gui.skip_frame_borders = Borders(16, 5, 50, 5)
