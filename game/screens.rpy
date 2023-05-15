@@ -1187,12 +1187,10 @@ screen confirm(message, yes_action, no_action):
 
     zorder 200
 
-    style_prefix "confirm"
-
-    add "gui/overlay/confirm.png"
+    # style_prefix "confirm"
 
     frame:
-
+        add "gui/confirm_window.png" xalign .5 yalign .5
         vbox:
             xalign .5
             yalign .5
@@ -1206,8 +1204,20 @@ screen confirm(message, yes_action, no_action):
                 xalign 0.5
                 spacing 100
 
-                textbutton _("确定") action yes_action
-                textbutton _("取消") action no_action
+                textbutton "确定":
+                    text_color "#000000"
+                    text_hover_color "#ffffff"
+                    left_padding 33
+                    background "gui/button/confirm_btn_idle.png"
+                    hover_background "gui/button/confirm_btn_hover.png"
+                    action yes_action
+                textbutton "取消":
+                    text_color "#000000"
+                    text_hover_color "#ffffff"
+                    left_padding 33
+                    background "gui/button/confirm_btn_idle.png"
+                    hover_background "gui/button/confirm_btn_hover.png"
+                    action no_action
 
     ## 右键点击退出并答复 no（取消）。
     key "game_menu" action no_action
@@ -1227,6 +1237,7 @@ style confirm_frame:
 
 style confirm_prompt_text:
     text_align 0.5
+    color "#000000"
     layout "subtitle"
 
 style confirm_button:

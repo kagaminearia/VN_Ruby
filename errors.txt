@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 264: 'idle' is not a keyword argument or valid child for the textbutton statement.
-    idle "#000000"
-        ^
+File "game/screens.rpy", line 1240: style property text_color is not known.
+    text_color "#000000"
+              ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Mon May 15 09:54:25 2023
+Mon May 15 10:47:23 2023
