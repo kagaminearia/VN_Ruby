@@ -241,7 +241,6 @@ transform open:
         xoffset 0 
         yoffset 0
 
-
 default quick_menu = True
 screen quick_menu():
     ## 确保该菜单出现在其他界面之上，
@@ -252,7 +251,8 @@ screen quick_menu():
                 text_color "#ffffff"
                 text_hover_color "#afafaf"
                 pos(1220,0)
-                action [SetVariable('quick_menu', False),Show("showQuick")]
+                # action [SetVariable('quick_menu', False),Show("showQuick"), HideInterface()]
+                action HideInterface()
 
         vbox:
             # style_prefix "quick"
@@ -317,14 +317,14 @@ screen quick_menu():
                 action ShowMenu('preferences')
 
 
-screen showQuick():
-    zorder 100
-    vbox:
-        textbutton "显示":
-            text_color "#ffffff"
-            text_hover_color "#afafaf"
-            pos(1220,0)
-            action [Hide("showQuick"), SetVariable('quick_menu', True)]
+# screen showQuick():
+#     zorder 100
+#     vbox:
+#         textbutton "显示":
+#             text_color "#ffffff"
+#             text_hover_color "#afafaf"
+#             pos(1220,0)
+#             action [Hide("showQuick"), SetVariable('quick_menu', True)]
 
 
 ## 此代码确保只要用户没有主动隐藏界面，就会在游戏中显示 quick_menu 界面。
