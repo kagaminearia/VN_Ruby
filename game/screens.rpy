@@ -1188,6 +1188,8 @@ screen confirm(message, yes_action, no_action):
 
     # style_prefix "confirm"
     frame:
+        background "#00000080"
+
         add "gui/confirm_window.png" xalign .5 yalign .5
         vbox:
             xalign .5
@@ -1230,9 +1232,8 @@ style confirm_button is gui_medium_button
 style confirm_button_text is gui_medium_button_text
 
 style confirm_frame:
-    # background Frame([ "gui/confirm_frame.png", "gui/frame.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
-    background "black"
-    # padding gui.confirm_frame_borders.padding
+    background Frame([ "gui/confirm_frame.png", "gui/frame.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
+    padding gui.confirm_frame_borders.padding
     xalign .5
     yalign .5
 
