@@ -241,7 +241,6 @@ transform open:
         xoffset 0 
         yoffset 0
 
-
 default quick_menu = True
 screen quick_menu():
     ## 确保该菜单出现在其他界面之上，
@@ -252,7 +251,8 @@ screen quick_menu():
                 text_color "#ffffff"
                 text_hover_color "#afafaf"
                 pos(1220,0)
-                action [SetVariable('quick_menu', False),Show("showQuick")]
+                # action [SetVariable('quick_menu', False),Show("showQuick"), HideInterface()]
+                action HideInterface()
 
         vbox:
             # style_prefix "quick"
@@ -317,14 +317,14 @@ screen quick_menu():
                 action ShowMenu('preferences')
 
 
-screen showQuick():
-    zorder 100
-    vbox:
-        textbutton "显示":
-            text_color "#ffffff"
-            text_hover_color "#afafaf"
-            pos(1220,0)
-            action [Hide("showQuick"), SetVariable('quick_menu', True)]
+# screen showQuick():
+#     zorder 100
+#     vbox:
+#         textbutton "显示":
+#             text_color "#ffffff"
+#             text_hover_color "#afafaf"
+#             pos(1220,0)
+#             action [Hide("showQuick"), SetVariable('quick_menu', True)]
 
 
 ## 此代码确保只要用户没有主动隐藏界面，就会在游戏中显示 quick_menu 界面。
@@ -1184,15 +1184,11 @@ screen confirm(message, yes_action, no_action):
 
     ## 显示此界面时，确保其他界面无法输入。
     modal True
-
     zorder 200
 
-    style_prefix "confirm"
-
-    add "gui/overlay/confirm.png"
-
+    # style_prefix "confirm"
     frame:
-
+        add "gui/confirm_window.png" xalign .5 yalign .5
         vbox:
             xalign .5
             yalign .5
@@ -1206,8 +1202,22 @@ screen confirm(message, yes_action, no_action):
                 xalign 0.5
                 spacing 100
 
-                textbutton _("确定") action yes_action
-                textbutton _("取消") action no_action
+                textbutton "确定":
+                    text_color "#000000"
+                    text_hover_color "#ffffff"
+                    left_padding 33
+                    right_padding 33
+                    background "gui/button/confirm_btn_idle.png"
+                    hover_background "gui/button/confirm_btn_hover.png"
+                    action yes_action
+                textbutton "取消":
+                    text_color "#000000"
+                    text_hover_color "#ffffff"
+                    left_padding 33
+                    right_padding 33
+                    background "gui/button/confirm_btn_idle.png"
+                    hover_background "gui/button/confirm_btn_hover.png"
+                    action no_action
 
     ## 右键点击退出并答复 no（取消）。
     key "game_menu" action no_action
@@ -1220,13 +1230,15 @@ style confirm_button is gui_medium_button
 style confirm_button_text is gui_medium_button_text
 
 style confirm_frame:
-    background Frame([ "gui/confirm_frame.png", "gui/frame.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
-    padding gui.confirm_frame_borders.padding
+    # background Frame([ "gui/confirm_frame.png", "gui/frame.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
+    background "black"
+    # padding gui.confirm_frame_borders.padding
     xalign .5
     yalign .5
 
 style confirm_prompt_text:
     text_align 0.5
+    color "#000000"
     layout "subtitle"
 
 style confirm_button:

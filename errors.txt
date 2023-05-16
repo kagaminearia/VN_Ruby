@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 264: 'idle' is not a keyword argument or valid child for the textbutton statement.
-    idle "#000000"
-        ^
+File "game/characters.rpy", line 4: Line is indented, but the preceding one-line python statement statement does not expect a block. Please check this line's indentation.
+    "gui/page_reminder.png"
+    ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Mon May 15 09:54:25 2023
+Mon May 15 19:46:30 2023

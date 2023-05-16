@@ -12,6 +12,7 @@ init python:
         renpy.ui.interact(blocking=False)
         renpy.ui.menu_function(None)
 
+
 # 游戏在此开始。
 
 label start:
