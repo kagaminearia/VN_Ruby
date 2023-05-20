@@ -75,6 +75,8 @@ style frame:
     padding gui.frame_borders.padding
     background Frame("gui/frame.png", gui.frame_borders, tile=gui.frame_tile)
 
+
+
 ################################################################################
 ## 游戏内界面
 ################################################################################
@@ -101,15 +103,15 @@ screen say(who, what):
             window:
                 id "namebox"
                 style "namebox"
-                text who id "who" 
+                text who id "who" color "#fff"
 
-        text what id "what" 
+        text what id "what"
 
 
     ## 如果有对话框头像，会将其显示在文本之上。请不要在手机界面下显示这个，因为
     ## 没有空间。
     if not renpy.variant("small"):
-        add SideImage() xalign 0.0 xpos 14 ypos 442
+        add SideImage() xalign 0.0 yalign 1.0
 
 
 ## 通过 Character 对象使名称框可用于样式化。
@@ -131,21 +133,20 @@ style window:
     yalign gui.textbox_yalign
     ysize gui.textbox_height
 
-    background Image("gui/textbox.png", xalign=0.5, yalign=1.0) 
+    background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
 
 style namebox:
     xpos gui.name_xpos
     xanchor gui.name_xalign
     xsize gui.namebox_width
     ypos gui.name_ypos
-    yanchor gui.name_yalign
     ysize gui.namebox_height
 
-    background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign, yalign=gui.name_yalign)
+    background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
     padding gui.namebox_borders.padding
 
 style say_label:
-    properties gui.text_properties("name")
+    properties gui.text_properties("name", accent=True)
     xalign gui.name_xalign
     yalign gui.name_yalign
     yanchor 'center'
@@ -229,9 +230,6 @@ style choice_button_text is default:
 ## 快捷菜单界面 ######################################################################
 ##
 ## 快捷菜单显示于游戏内，以便于访问游戏外的菜单。
-
-
-
 transform open:
     on idle:
         xoffset 180 # 用于改变按键移动的距离
@@ -241,7 +239,6 @@ transform open:
         xoffset 0 
         yoffset 0
 
-default quick_menu = True
 screen quick_menu():
     ## 确保该菜单出现在其他界面之上，
     zorder 100
@@ -317,20 +314,12 @@ screen quick_menu():
                 action ShowMenu('preferences')
 
 
-# screen showQuick():
-#     zorder 100
-#     vbox:
-#         textbutton "显示":
-#             text_color "#ffffff"
-#             text_hover_color "#afafaf"
-#             pos(1220,0)
-#             action [Hide("showQuick"), SetVariable('quick_menu', True)]
-
 
 ## 此代码确保只要用户没有主动隐藏界面，就会在游戏中显示 quick_menu 界面。
 init python:
     config.overlay_screens.append("quick_menu")
 
+default quick_menu = True
 
 style quick_button is default
 style quick_button_text is button_text
@@ -365,7 +354,7 @@ screen navigation():
             textbutton _("开始游戏") action Start()
 
         else:
-            
+
             textbutton _("历史") action ShowMenu("history")
 
             textbutton _("保存") action ShowMenu("save")
@@ -1567,53 +1556,3 @@ style slider_vbox:
 style slider_slider:
     variant "small"
     xsize 600
-
-#章节选择界面
-
-style button_l:
-    idle_background "gui/chapter_l_button1.png"
-    hover_background "gui/chapter_l_button2.png"
-
-style button_co:
-    idle_background "gui/chapter_co_button1.png"
-    hover_background "gui/chapter_co_button2.png"
-
-style button_ad:
-    idle_background "gui/chapter_ad_button1.png"
-    hover_background "gui/chapter_ad_button2.png"
-
-screen chapter():
-
-    tag menu
-    zorder 100
-    add "gui/chapter.png"
-
-    button:
-        style "button_co"
-
-        xysize (960, 466)
-        pos (100,254) 
-
-        focus_mask True
-
-        action [None]
-
-    button:
-        style "button_ad"
-
-        xysize (552, 526)
-        pos (728,194)
-
-        focus_mask True
-
-        action [None]
-
-    button:
-        style "button_l"
-
-        xysize (381, 486)
-        pos (0,234)
-
-        focus_mask True
-
-        action Jump("chapter_l_1")  
