@@ -113,7 +113,7 @@ define gui.namebox_width = 221
 define gui.namebox_height = 68
 
 ## 包含角色名字的方框的边界尺寸，以左、上、右、下顺序排列。
-define gui.namebox_borders = Borders(10,10, 10, 10)
+define gui.namebox_borders = Borders(10, 10, 10, 10)
 
 ## 若为 True，则名字框的背景将平铺；若为 False，则名字框的背景将缩放。
 define gui.namebox_tile = False
@@ -159,7 +159,7 @@ define gui.button_text_insensitive_color = gui.insensitive_color
 
 ## 按钮文本的水平对齐方式。（0.0 为左侧对齐，0.5 为居中对齐，而 1.0 为右侧对
 ## 齐）。
-define gui.button_text_xalign = None
+define gui.button_text_xalign = 0.0
 
 
 ## 这些变量覆盖了不同类型按钮的设置。关于可用的按钮种类以及每种按钮的用途，请参
@@ -171,7 +171,7 @@ define gui.radio_button_borders = Borders(18, 4, 4, 4)
 
 define gui.check_button_borders = Borders(18, 4, 4, 4)
 
-define gui.confirm_button_text_xalign = None
+define gui.confirm_button_text_xalign = 0.5
 
 define gui.page_button_borders = Borders(10, 4, 10, 4)
 
@@ -196,7 +196,7 @@ define gui.choice_button_tile = False
 define gui.choice_button_borders = Borders(100, 5, 100, 5)
 define gui.choice_button_text_font = gui.text_font
 define gui.choice_button_text_size = gui.text_size
-define gui.choice_button_text_xalign = None
+define gui.choice_button_text_xalign = 0.5
 define gui.choice_button_text_idle_color = "#cccccc"
 define gui.choice_button_text_hover_color = "#ffffff"
 define gui.choice_button_text_insensitive_color = "#444444"
@@ -267,11 +267,9 @@ define gui.main_menu_text_xalign = 1.0
 
 ## 通用框架。
 define gui.frame_borders = Borders(4, 4, 4, 4)
-# define gui.frame_borders = None
 
 ## 用作确认界面部分的框架。
 define gui.confirm_frame_borders = Borders(40, 40, 40, 40)
-# define gui.confirm_frame_borders = None
 
 ## 用作快进界面部分的框架。
 define gui.skip_frame_borders = Borders(16, 5, 50, 5)
@@ -374,7 +372,7 @@ define gui.nvl_thought_xalign = 0.0
 
 ## NVL menu_buttons 的位置。
 define gui.nvl_button_xpos = 450
-define gui.nvl_button_xalign = None
+define gui.nvl_button_xalign = 0.0
 
 ## 本地化 #########################################################################
 

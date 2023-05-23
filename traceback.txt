@@ -1,23 +1,21 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-After loading the script.
-Exception: Could not find font 'SourceHanSansLite.ttf'.
+While running game code:
+Exception: Could not find font 'fonts/FZCQJW.TTF'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "C:\coding\renpy-8.0.3-sdk.7z\renpy-8.0.3-sdk\renpy\bootstrap.py", line 277, in bootstrap
-    renpy.main.main()
-  File "C:\coding\renpy-8.0.3-sdk.7z\renpy-8.0.3-sdk\renpy\main.py", line 548, in main
-    if renpy.parser.report_parse_errors():
-  File "C:\coding\renpy-8.0.3-sdk.7z\renpy-8.0.3-sdk\renpy\parser.py", line 3109, in report_parse_errors
-    renpy.display.error.report_parse_errors(full_text, error_fn)
-  File "C:\coding\renpy-8.0.3-sdk.7z\renpy-8.0.3-sdk\renpy\display\error.py", line 195, in report_parse_errors
-    renpy.game.invoke_in_new_context(
-  File "C:\coding\renpy-8.0.3-sdk.7z\renpy-8.0.3-sdk\renpy\game.py", line 286, in invoke_in_new_context
-    return callable(*args, **kwargs)
-  File "C:\coding\renpy-8.0.3-sdk.7z\renpy-8.0.3-sdk\renpy\display\error.py", line 48, in call_exception_screen
-    return renpy.ui.interact(mouse="screen", type="screen", suppress_overlay=True, suppress_underlay=True)
+  File "renpy/common/_layout/screen_main_menu.rpym", line 28, in script
+    python hide:
+  File "C:\coding\renpy-8.0.3-sdk.7z\renpy-8.0.3-sdk\renpy\ast.py", line 1131, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\coding\renpy-8.0.3-sdk.7z\renpy-8.0.3-sdk\renpy\python.py", line 1061, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "renpy/common/_layout/screen_main_menu.rpym", line 28, in <module>
+    python hide:
+  File "renpy/common/_layout/screen_main_menu.rpym", line 35, in _execute_python_hide
+    ui.interact()
   File "C:\coding\renpy-8.0.3-sdk.7z\renpy-8.0.3-sdk\renpy\ui.py", line 299, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
   File "C:\coding\renpy-8.0.3-sdk.7z\renpy-8.0.3-sdk\renpy\display\core.py", line 3377, in interact
@@ -48,28 +46,22 @@ Full traceback:
     surf = render(child, width, height, cst, cat)
   File "render.pyx", line 170, in renpy.display.render.render
   File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\coding\renpy-8.0.3-sdk.7z\renpy-8.0.3-sdk\renpy\display\layout.py", line 1334, in render
-    surf = render(child,
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\coding\renpy-8.0.3-sdk.7z\renpy-8.0.3-sdk\renpy\display\layout.py", line 1847, in render
-    cwidth, cheight = sizeit('c', width, height, 0, 0)
-  File "C:\coding\renpy-8.0.3-sdk.7z\renpy-8.0.3-sdk\renpy\display\layout.py", line 1844, in sizeit
-    rend = renpy.display.render.render_for_size(pos_d[pos], width, height, st, at)
-  File "render.pyx", line 318, in renpy.display.render.render_for_size
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\coding\renpy-8.0.3-sdk.7z\renpy-8.0.3-sdk\renpy\display\layout.py", line 1847, in render
-    cwidth, cheight = sizeit('c', width, height, 0, 0)
-  File "C:\coding\renpy-8.0.3-sdk.7z\renpy-8.0.3-sdk\renpy\display\layout.py", line 1844, in sizeit
-    rend = renpy.display.render.render_for_size(pos_d[pos], width, height, st, at)
-  File "render.pyx", line 318, in renpy.display.render.render_for_size
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\coding\renpy-8.0.3-sdk.7z\renpy-8.0.3-sdk\renpy\display\viewport.py", line 256, in render
-    surf = renpy.display.render.render(self.child, child_width, child_height, st, at)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
   File "C:\coding\renpy-8.0.3-sdk.7z\renpy-8.0.3-sdk\renpy\display\layout.py", line 1105, in render
     surf = render(d, width - x, rh, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\coding\renpy-8.0.3-sdk.7z\renpy-8.0.3-sdk\renpy\display\behavior.py", line 885, in render
+    rv = super(Button, self).render(width, height, st, at)
+  File "C:\coding\renpy-8.0.3-sdk.7z\renpy-8.0.3-sdk\renpy\display\layout.py", line 1287, in render
+    xminimum = max(xminimum, size_groups[size_group].width(width, height, st, at))
+  File "C:\coding\renpy-8.0.3-sdk.7z\renpy-8.0.3-sdk\renpy\display\layout.py", line 1224, in width
+    rend = renpy.display.render.render_for_size(i, width, height, st, at)
+  File "render.pyx", line 318, in renpy.display.render.render_for_size
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\coding\renpy-8.0.3-sdk.7z\renpy-8.0.3-sdk\renpy\display\behavior.py", line 885, in render
+    rv = super(Button, self).render(width, height, st, at)
+  File "C:\coding\renpy-8.0.3-sdk.7z\renpy-8.0.3-sdk\renpy\display\layout.py", line 1334, in render
+    surf = render(child,
   File "render.pyx", line 170, in renpy.display.render.render
   File "render.pyx", line 266, in renpy.display.render.render
   File "C:\coding\renpy-8.0.3-sdk.7z\renpy-8.0.3-sdk\renpy\text\text.py", line 2109, in render
@@ -82,9 +74,9 @@ Full traceback:
     face = load_face(fn)
   File "C:\coding\renpy-8.0.3-sdk.7z\renpy-8.0.3-sdk\renpy\text\font.py", line 658, in load_face
     raise Exception("Could not find font {0!r}.".format(orig_fn))
-Exception: Could not find font 'SourceHanSansLite.ttf'.
+Exception: Could not find font 'fonts/FZCQJW.TTF'.
 
 Windows-10-10.0.22621 AMD64
 Ren'Py 8.0.3.22090809
 红宝石狂想曲 1.0
-Mon May 15 19:46:31 2023
+Sat May 20 04:37:46 2023
