@@ -149,6 +149,8 @@ style say_label:
     properties gui.text_properties("name", accent=True)
     xalign gui.name_xalign
     yalign gui.name_yalign
+    xanchor 'left'
+    xoffset -32
     yanchor 'center'
     ypos 12
 
@@ -245,9 +247,10 @@ screen quick_menu():
     if quick_menu:
         vbox:
             textbutton "隐藏":
+                text_size 30
                 text_color "#ffffff"
                 text_hover_color "#afafaf"
-                pos(1220,0)
+                pos(1210,0)
                 # action [SetVariable('quick_menu', False),Show("showQuick"), HideInterface()]
                 action HideInterface()
 
